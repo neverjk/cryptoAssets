@@ -9,7 +9,7 @@
     console.log(result);
 
     var rows = result;
-    var html = '<table class="table table-striped" id="mainTable">';
+    var html = '<table class="table table-striped" style="padding-top:10px; padding-bottom:10px;" id="mainTable">';
     html += '<thead class="thead-dark"><tr><th scope = "col" >ID</th ><th scope="col">Name</th><th scope="col">Human Type</th><th scope="col">Currency Type</th><th scope="col">TXFee</th><th scope="col">Min Conf</th><th scope="col">Remove</th></tr ></thead>';
     html += '<tbody>';
     for (var i = 0; i < rows.length; i++) {
@@ -33,7 +33,6 @@
 function removeRow(button) {
     var removable = button.parentNode.parentNode;
     removable.parentNode.removeChild(removable);
-
 }
 function search() {
     var input, filter, table, tr, td, i, txtValue;
