@@ -17,13 +17,13 @@
         let counter = 0;
         for (var j in rows[i][1]) {
             html += '<td>' + rows[i][1][j] + '</td>';
-            
+
             counter++;
             if (counter == 6) {
                 break;
             }
         }
-        html +='<td><button type="button" onclick="removeRow(this)" class="btn btn-outline-dark">Remove</button></td>'
+        html += '<td><button type="button" onclick="removeRow(this)" class="btn btn-outline-dark">Remove</button></td>'
         html += '</tr>';
     }
     html += ' </tbody></table>';
@@ -40,26 +40,37 @@ function search() {
     filter = input.value.toUpperCase();
     table = document.getElementById("mainTable");
     tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
+    for (i = 1; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td");
-        let found = false;
-        for (j = 0; j < td.length; j++) {
-            if (td[j]) {
-                txtValue = td[j].textContent || td[j].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    found = true;
-                    break;
-                } else {
+        //let found = false;
+        //for (j = 0; j < td.length; j++) {
+        //    if (td[j]) {
+        //        txtValue = td[j].textContent || td[j].innerText;
+        //        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        //            found = true;
+        //            break;
+        //        } else {
 
+        //        }
+        //    }
+        //}
+        //if (found) {
+        //    tr[i].style.display = "";
+        //}
+        //else {
+        //    tr[i].style.display = "none";
+        ////}
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
                 }
             }
         }
-        if (found) {
-            tr[i].style.display = "";
-        }
-        else {
-            tr[i].style.display = "none";
-        }
-       
+        
     }
 }
